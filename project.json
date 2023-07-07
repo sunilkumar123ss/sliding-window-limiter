@@ -1,0 +1,8 @@
+{
+  "slug": "sliding-window-limiter",
+  "title": "Sliding Window Limiter",
+  "description": "Enforce exact request counts over a moving time window.",
+  "category": "backend",
+  "demo_args": [],
+  "expected_exit": 0
+}
