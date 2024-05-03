@@ -44,3 +44,19 @@ class SlidingWindowLimiter:
     def count(self, now):
         self._prune(now)
         return len(self._accepted)
+
+
+def main():
+    argparse.ArgumentParser(description=__doc__).parse_args()
+    limiter = SlidingWindowLimiter(3, 10)
+    events = []
+    for timestamp in (0, 2, 3, 4, 9, 10, 11, 12):
+        allowed = limiter.allow(timestamp)
+        events.append({"at": timestamp, "allowed": allowed,
+                       "in_window": limiter.count(timestamp),
+                       "retry_after": limiter.retry_after(timestamp)})
+    print(json.dumps(events, indent=2))
+
+
+if __name__ == "__main__":
+    main()
