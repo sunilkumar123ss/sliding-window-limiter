@@ -9,6 +9,11 @@ class SlidingWindowTests(unittest.TestCase):
         self.assertTrue(limiter.allow(0))
         self.assertFalse(limiter.allow(0))
 
+    def test_exact_boundary_expires(self):
+        limiter = SlidingWindowLimiter(1, 10)
+        self.assertTrue(limiter.allow(0))
+        self.assertFalse(limiter.allow(9.999))
+        self.assertTrue(limiter.allow(10))
 
 
 
