@@ -4,7 +4,7 @@ This reference implementation and all of the following milestone commits were pr
 
 **Every recorded author and committer date in this timeline is synthetic. These dates are not evidence that the code was written, tested, deployed, or used professionally in the past.**
 
-This snapshot is milestone 6 of 15. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
+This snapshot is milestone 7 of 15. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
 
 The progression decomposes already-completed October 2026 code into meaningful additions. It is not recovered original development history. Publication time is separate from the synthetic Git timestamps.
 
@@ -18,7 +18,7 @@ The progression decomposes already-completed October 2026 code into meaningful a
 | 4 | 2024-05-03T09:08:42+05:30 | add the deterministic demonstration and command-line entry point (present) |
 | 5 | 2024-05-08T15:42:48+05:30 | test same timestamp counts separate requests (present) |
 | 6 | 2024-05-18T16:00:24+05:30 | test exact boundary expires (present) |
-| 7 | 2024-06-29T09:36:11+05:30 | test denials do not extend window (later stage) |
+| 7 | 2024-06-29T09:36:11+05:30 | test denials do not extend window (present) |
 | 8 | 2025-08-11T14:58:49+05:30 | test staggered expiry (later stage) |
 | 9 | 2025-11-18T10:13:57+05:30 | test empty has no delay (later stage) |
 | 10 | 2026-02-21T12:16:34+05:30 | test rejected requests advance clock (later stage) |

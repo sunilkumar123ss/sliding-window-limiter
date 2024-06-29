@@ -15,6 +15,12 @@ class SlidingWindowTests(unittest.TestCase):
         self.assertFalse(limiter.allow(9.999))
         self.assertTrue(limiter.allow(10))
 
+    def test_denials_do_not_extend_window(self):
+        limiter = SlidingWindowLimiter(1, 10)
+        limiter.allow(0)
+        self.assertFalse(limiter.allow(9))
+        self.assertEqual(limiter.retry_after(9), 1)
+        self.assertTrue(limiter.allow(10))
 
 
 
