@@ -22,6 +22,13 @@ class SlidingWindowTests(unittest.TestCase):
         self.assertEqual(limiter.retry_after(9), 1)
         self.assertTrue(limiter.allow(10))
 
+    def test_staggered_expiry(self):
+        limiter = SlidingWindowLimiter(3, 10)
+        for timestamp in (0, 2, 4):
+            limiter.allow(timestamp)
+        self.assertEqual(limiter.count(10), 2)
+        self.assertEqual(limiter.count(12), 1)
+        self.assertEqual(limiter.count(14), 0)
 
 
 
