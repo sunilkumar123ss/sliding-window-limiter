@@ -30,6 +30,8 @@ class SlidingWindowTests(unittest.TestCase):
         self.assertEqual(limiter.count(12), 1)
         self.assertEqual(limiter.count(14), 0)
 
+    def test_empty_has_no_delay(self):
+        self.assertEqual(SlidingWindowLimiter(1, 10).retry_after(100), 0)
 
 
 
