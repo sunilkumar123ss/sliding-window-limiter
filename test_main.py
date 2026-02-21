@@ -33,6 +33,12 @@ class SlidingWindowTests(unittest.TestCase):
     def test_empty_has_no_delay(self):
         self.assertEqual(SlidingWindowLimiter(1, 10).retry_after(100), 0)
 
+    def test_rejected_requests_advance_clock(self):
+        limiter = SlidingWindowLimiter(1, 10)
+        limiter.allow(0)
+        limiter.allow(5)
+        with self.assertRaises(ValueError):
+            limiter.allow(4)
 
 
 
