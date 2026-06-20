@@ -40,6 +40,12 @@ class SlidingWindowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             limiter.allow(4)
 
+    def test_validation(self):
+        for limit, window in ((0, 1), (True, 1), (1, 0), (1, float('inf'))):
+            with self.subTest(limit=limit, window=window), self.assertRaises(ValueError):
+                SlidingWindowLimiter(limit, window)
+        with self.assertRaises(ValueError):
+            SlidingWindowLimiter(1, 10).allow(float('nan'))
 
 
 if __name__ == '__main__':
